@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        body{
+            background-color: beige;
+        }
+        .book{
+            width: 500px;
+            height: 600px;
+            margin: 100px auto;
+            position: relative;
+            transition: 2s;
+            transform-style: preserve-3d;
+            &:hover{
+                transform: perspective(800px) rotateY(-145deg);
+            }
+            &::after{
+                content: '';
+                display: block;
+                width: 100px;
+                height: 100%;
+                background-color: yellowgreen;
+                position: absolute;
+                top: 0;right: 0;
+                transform-origin: right;
+                transform: rotateY(-90deg);
+
+            }
+            >img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;left: 0;
+                object-fit: cover;
+                &:first-of-type{
+                    transform: translateZ(-100px) scaleX(-1);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <img src="img/j2.jpg" alt="">
+        <img src="img/j1.jpg" alt="">
+    </div>
+</body>
+</html>
